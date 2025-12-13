@@ -5,6 +5,7 @@ import '../widgets/category_card.dart';
 import '../widgets/loading_widget.dart';
 import 'meals_screen.dart';
 import 'meal_detail_screen.dart';
+import 'favorites_screen.dart';
 
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({Key? key}) : super(key: key);
@@ -99,6 +100,18 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       appBar: AppBar(
         title: const Text('Meal Categories'),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.favorite),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const FavoritesScreen(),
+                ),
+              );
+            },
+            tooltip: 'Favorites',
+          ),
           IconButton(
             icon: const Icon(Icons.shuffle),
             onPressed: _showRandomMeal,
